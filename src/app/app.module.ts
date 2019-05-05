@@ -4,6 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AreaCalculatorComponent } from './areacalc/areacalc.component';
 import { HomeComponent } from './home/home.component';
+import { DateServices } from './services/date.services';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes : Routes = [
+  { path : '', component: HomeComponent},
+  { path : 'area-calculator', component: AreaCalculatorComponent},
+]
 
 @NgModule({
   declarations: [
@@ -14,9 +21,12 @@ import { HomeComponent } from './home/home.component';
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers:[],
+  providers:[
+    DateServices
+  ],
   bootstrap:[AppComponent]
 
 })

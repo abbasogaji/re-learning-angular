@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DateServices } from '../services/date.services';
 
 @Component({
   selector: 'app-area-calculator',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./areacalc.component.css']
 })
 export class AreaCalculatorComponent implements OnInit {
-
-  constructor() { }
+  date : string = '';
+  constructor(private dateServices : DateServices) { }
 
   ngOnInit() {
+    this.date = this.dateServices.getTodaysDate();
   }
 
 }
